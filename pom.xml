@@ -7,6 +7,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <!-- 父工程的依赖 -->
+    <modules>
+        <module>cloud-provider-payment8001</module>
+    </modules>
+
     <!-- 统一管理jar包版本 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
