@@ -4,6 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
+/**
+ * 付款main8001
+ *
+ * @author DELL_
+ * @date 2022/09/09
+ */
 @SpringBootApplication
 public class PaymentMain8001 {
 
