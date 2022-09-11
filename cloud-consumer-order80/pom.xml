@@ -10,6 +10,12 @@
     <artifactId>cloud-consumer-order80</artifactId>
 
     <dependencies>
+        <!-- eureka client -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
         <!-- 引入项目本身的通用jar包, 能够使用通用api -->
         <dependency>
             <groupId>com.atguigu.springcloud</groupId>
