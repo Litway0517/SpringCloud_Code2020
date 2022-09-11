@@ -12,6 +12,6 @@ eureka:
     register-with-eureka: false
     # false表示本身作为注册中心, 职责为维护实例, 并不需要检索微服务
     fetch-registry: false
-    # 设置与Eureka Server交互的地址. 查询服务和注册服务都需要依赖这个地址. 实际上就是Eureka Server服务端的地址.
+    # 设置与Eureka Server交互的地址. 查询服务和注册服务都需要依赖这个地址. Eureka Server服务器的地址为http://localhost:port/
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
