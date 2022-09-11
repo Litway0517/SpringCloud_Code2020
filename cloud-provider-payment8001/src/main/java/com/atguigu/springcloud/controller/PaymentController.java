@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
- * @auther zzyy
- * @create 2020-01-27 21:17
+ * 付款控制器
+ *
+ * @author DELL_
+ * @date 2022/09/11
  */
 @RestController
 @Slf4j

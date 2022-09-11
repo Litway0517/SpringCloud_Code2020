@@ -5,8 +5,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @auther zzyy
- * @create 2020-02-18 10:27
+ * 付款
+ *
+ * @author DELL_
+ * @date 2022/09/11
  */
 @Mapper
 public interface PaymentDao

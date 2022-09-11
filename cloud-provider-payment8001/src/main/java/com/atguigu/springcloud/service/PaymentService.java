@@ -4,8 +4,10 @@ import com.atguigu.springcloud.entities.Payment;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @auther zzyy
- * @create 2020-02-18 10:40
+ * 支付服务
+ *
+ * @author DELL_
+ * @date 2022/09/11
  */
 public interface PaymentService
 {

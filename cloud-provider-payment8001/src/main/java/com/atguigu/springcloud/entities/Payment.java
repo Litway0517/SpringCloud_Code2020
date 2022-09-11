@@ -6,6 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * 付款
+ *
+ * @author DELL_
+ * @date 2022/09/11
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
