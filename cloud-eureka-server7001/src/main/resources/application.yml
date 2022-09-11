@@ -5,7 +5,8 @@ server:
 eureka:
   # eureka实例
   instance:
-    hostname: localhost
+    # 服务端的名称 -> 因为更改了windows的etc文件中的hosts文件, 因此现在浏览器访问eureka7001.com会映射为127.0.0.1这个地址
+    hostname: eureka7001.com
   # 针对客户端的一些配置
   client:
     # false表示不向注册中心注册本身
@@ -14,4 +15,5 @@ eureka:
     fetch-registry: false
     # 设置与Eureka Server交互的地址. 查询服务和注册服务都需要依赖这个地址. Eureka Server服务器的地址为http://localhost:port/
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 相互注册的地址
+      defaultZone: http://eureka7002.com:7002/eureka/
