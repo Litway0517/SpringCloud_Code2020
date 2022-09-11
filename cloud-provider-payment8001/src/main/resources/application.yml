@@ -13,6 +13,16 @@ spring:
     username: root
     password: root
 
+# 配置eureka
+eureka:
+  client:
+    # 表名本微服务是否注册进入Eureka Server服务器, 当然设置为true
+    register-with-eureka: true
+    # 是否从Eureka Server抓取已有的注册信息. 默认为true. 单节点无所谓, 而集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      # 本模块的微服务注册进入到Eureka Server服务端时, 注册的地址. 注意下面的地址并不是Eureka Server的主页地址.
+      defaultZone: http://localhost:7001/eureka/
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
