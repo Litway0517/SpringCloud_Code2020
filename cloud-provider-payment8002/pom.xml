@@ -8,7 +8,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <!-- 因为继承了springcloud2020所以不用指出groupId和version了 -->
-    <artifactId>cloud-provider-payment8001</artifactId>
+    <artifactId>cloud-provider-payment8002</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
