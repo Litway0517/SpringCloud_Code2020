@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 
 /**
- * 付款main8001
+ * 付款main8002
  *
  * @author DELL_
- * @date 2022/09/09
+ * @date 2022/09/12
  */
 @SpringBootApplication
 // 开启Eureka Client客户端, 使微服务进入到Eureka Server服务器
