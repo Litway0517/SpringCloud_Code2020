@@ -28,6 +28,9 @@ eureka:
   # 配置微服务的id
   instance:
     instance-id: payment8002
+    # 修改ip地址的显示
+    prefer-ip-address: true
+
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
