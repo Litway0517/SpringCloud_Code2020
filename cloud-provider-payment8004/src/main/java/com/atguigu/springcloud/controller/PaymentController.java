@@ -5,6 +5,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 付款控制器
+ *
+ * @author DELL_
+ * @date 2022/09/13
+ */
 @RestController
 public class PaymentController {
 
