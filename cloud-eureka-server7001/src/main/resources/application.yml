@@ -17,8 +17,8 @@ eureka:
     service-url:
       # 相互注册的地址
       defaultZone: http://eureka7001.com:7001/eureka/
-  server:
+  #server:
     # 关闭自我保护功能, 当某些注册到注册中心的微服务不可用时, 就及时剔除响应的信息
-    enable-self-preservation: true
+    # enable-self-preservation: true
     # 剔除间隔: 超过2000ms没有心跳报文则删除相应注册信息
-    eviction-interval-timer-in-ms: 20000
+    # eviction-interval-timer-in-ms: 20000
