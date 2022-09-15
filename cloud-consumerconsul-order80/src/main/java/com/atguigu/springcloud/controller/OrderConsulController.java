@@ -1,6 +1,6 @@
 package com.atguigu.springcloud.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,9 +14,9 @@ public class OrderConsulController {
 
     private static final String PAYMENT_URL = "http://CONSUL-PROVIDER-PAYMENT/payment";
 
-    @RequestMapping(value = "/consumer/payment/consul")
+    @GetMapping(value = "/consumer/payment/consul")
     public String consumerConsul() {
-        return restTemplate.getForObject(PAYMENT_URL + "/consul", String.class );
+        return restTemplate.getForObject(PAYMENT_URL + "/consul", String.class);
     }
 
 }
