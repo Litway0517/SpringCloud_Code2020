@@ -23,13 +23,13 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @Value("${server.port}")
-    private String serverPost;
+    private String serverPort;
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         if (payment != null) {
-            return new CommonResult(200, "查询成功, server-port = " + serverPost, payment);
+            return new CommonResult(200, "查询成功, server-port = " + serverPort, payment);
         } else {
             return new CommonResult(444, "没有对应记录,查询ID: " + id, null);
         }
@@ -39,7 +39,7 @@ public class PaymentController {
     public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         if (result > 0) {
-            return new CommonResult(200, "插入数据库成功, server-port = " + serverPost, result);
+            return new CommonResult(200, "插入数据库成功, server-port = " + serverPort, result);
         } else {
             return new CommonResult(444, "插入数据库失败", null);
         }
