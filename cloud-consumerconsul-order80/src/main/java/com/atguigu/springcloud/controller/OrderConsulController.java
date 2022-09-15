@@ -18,7 +18,6 @@ public class OrderConsulController {
 
     private static final String PAYMENT_URL = "http://CONSUL-PROVIDER-PAYMENT/payment";
 
-    private static final String PAYMENT_SERVICE_URL = "http://CLOUD-PAYMENT-SERVICE/payment";
 
     @GetMapping(value = "/consumer/payment/consul")
     public String consumerConsul() {
@@ -27,7 +26,7 @@ public class OrderConsulController {
 
     @GetMapping(value = "/consumer/payment/getEntity/consul/{id}")
     public CommonResult<Payment> consumerConsulForEntity(@PathVariable("id") Long id) {
-        ResponseEntity<CommonResult> response = restTemplate.getForEntity(PAYMENT_SERVICE_URL + "/get/" + id, CommonResult.class);
+        ResponseEntity<CommonResult> response = restTemplate.getForEntity(PAYMENT_URL + "/get/" + id, CommonResult.class);
         if (response.getStatusCode().is2xxSuccessful()) {
             return response.getBody();
         } else {
