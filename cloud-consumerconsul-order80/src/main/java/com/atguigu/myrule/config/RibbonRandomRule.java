@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 // 配置类注入
 @Configuration
-public class RibbonConfig {
+public class RibbonRandomRule {
 
     // 该配置类
     @Bean
