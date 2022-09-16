@@ -1,9 +1,9 @@
-package com.atguigu.springcloud.springcloud.controller;
+package com.atguigu.springcloud.controller;
 
 import cn.hutool.core.lang.UUID;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
-import com.atguigu.springcloud.springcloud.service.PaymentService;
+import com.atguigu.springcloud.service.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
