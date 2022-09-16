@@ -11,7 +11,7 @@ spring:
       host: localhost
       port: 8500
       discovery:
-        # hostname
+        # 服务名称
         service-name: ${spring.application.name}
 
   # 数据源
