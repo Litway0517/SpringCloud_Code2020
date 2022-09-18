@@ -36,4 +36,14 @@ public class PaymentController {
         }
     }
 
+    @GetMapping("/payment/openfeign/timeout")
+    public CommonResult<Payment> paymentFeignTimeout() {
+        try {
+            Thread.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return new CommonResult<>(200, "操作成功");
+    }
+
 }
