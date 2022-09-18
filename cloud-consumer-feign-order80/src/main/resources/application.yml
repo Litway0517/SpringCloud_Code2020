@@ -14,4 +14,10 @@ spring:
         # 服务名称
         service-name: ${spring.application.name}
 
+ribbon:
+  # 建立连接所用的时间, 适用于网络正常的情况下, 两端所用的连接时间. 超过这个时间就会报错
+  ConnectionTimeout: 5000
+  # 建立连接后从服务端读取到资源所使用的时间, 超时报错
+  ReadTimeout: 5000
+
 
