@@ -24,12 +24,14 @@ public class OrderFeignController {
     @GetMapping("/consumer/payment/consul/test")
     public CommonResult<String> consul()
     {
-        return paymentFeignService.paymentConsul();
+        String s = paymentFeignService.paymentConsul();
+        return new CommonResult<>(200, "OpenFeign请求成功", s);
     }
 
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id)
     {
-        return paymentFeignService.getPaymentById(id);
+        CommonResult<Payment> paymentById = paymentFeignService.getPaymentById(id);
+        return paymentById;
     }
 }
