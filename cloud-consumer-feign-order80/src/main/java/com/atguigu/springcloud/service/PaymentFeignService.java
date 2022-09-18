@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(value = "CONSUL-PROVIDER-PAYMENT")
 public interface PaymentFeignService {
 
+    // 返回的结果要和微服务中rest接口的返回值一致
     @RequestMapping(value = "/payment/consul")
-    CommonResult<String> paymentConsul();
+    String paymentConsul();
 
     @GetMapping(value = "/payment/get/{id}")
     CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
