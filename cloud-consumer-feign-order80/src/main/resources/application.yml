@@ -14,10 +14,17 @@ spring:
         # 服务名称
         service-name: ${spring.application.name}
 
+# feign超时控制配置
 ribbon:
   # 建立连接所用的时间, 适用于网络正常的情况下, 两端所用的连接时间. 超过这个时间就会报错
   ConnectionTimeout: 5000
   # 建立连接后从服务端读取到资源所使用的时间, 超时报错
   ReadTimeout: 5000
+
+# feign日志配置
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.atguigu.springcloud.service.PaymentFeignService: debug
 
 
