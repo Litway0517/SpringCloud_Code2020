@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class PaymentController {
@@ -39,7 +40,7 @@ public class PaymentController {
     @GetMapping("/payment/openfeign/timeout")
     public CommonResult<Payment> paymentFeignTimeout() {
         try {
-            Thread.sleep(3);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
