@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * 付款服务
+ *
+ * @author DELL_
+ * @date 2022/09/19
+ */
 @FeignClient(value = "CONSUL-PROVIDER-PAYMENT")
 public interface PaymentFeignService {
 
