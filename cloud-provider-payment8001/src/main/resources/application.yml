@@ -23,7 +23,7 @@ eureka:
     service-url:
       # 本模块的微服务注册进入到Eureka Server服务端时, 注册的地址. 注意下面的地址并不是Eureka Server的主页地址.
       # defaultZone: http://localhost:7001/eureka/
-      # 集群版注册方式
+      # 集群版注册方式, 注意需要更改主机hosts中的ip与域名映射
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   # 配置微服务的id
   instance:
