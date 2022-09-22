@@ -11,7 +11,7 @@
 
 
     <dependencies>
-        <!-- spring cloud gateway -->
+        <!-- spring cloud gateway 注意: springcloud gateway不需要再引入web依赖和actuator依赖了 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
