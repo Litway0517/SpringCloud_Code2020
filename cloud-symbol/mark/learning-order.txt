@@ -2,12 +2,21 @@
 
 ======================================
 Tips:" 模块顺序
+
     - cloud-consumer-order80:           消费 -> 订单消费模块, 注册到eureka注册中心
-    - cloud-provider-payment8001:       服务 -> 订单支付模块
-    - cloud-provider-payment8002:       服务 -> 第二个订单微服务模块, 构成支付微服务集群
+    - cloud-provider-payment8001:       服务 -> 订单支付模块, 注册到eureka注册中心
+    - cloud-provider-payment8002:       服务 -> 第二个订单微服务模块, 注册到eureka注册中心, 构成支付微服务集群
+
     - cloud-eureka-server7001:          服务 -> eureka server第一个注册中心
     - cloud-eureka-server7002:          服务 -> eureka server第二个注册中心, 构成注册中心集群
+
+    - cloud-consumerZookeeper-order80:  消费 ->
+    - cloud-provider-payment8004:       服务 -> 订单支付模块, 注册到zookeeper注册中心
+
     - cloud-consumerconsul-order80:     消费 -> 订单消费模块, 注册到consul注册中心
+    - cloud-providerconsul-payment8006: 服务 -> 订单服务模块, 注册到consul注册中心
+    - cloud-providerconsul-payment8008: 服务 -> 第二个订单服务模块, 注册到consul注册中心, 构成支付微服务集群
+
 
 
 
