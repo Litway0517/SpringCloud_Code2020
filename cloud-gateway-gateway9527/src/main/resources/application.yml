@@ -1,0 +1,19 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+
+  # cloud
+  cloud:
+    # 注册到consul
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        # 服务名称
+        service-name: ${spring.application.name}
+
+    # 网关相关配置
+
