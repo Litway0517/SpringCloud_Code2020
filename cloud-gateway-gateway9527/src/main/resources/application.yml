@@ -16,4 +16,20 @@ spring:
         service-name: ${spring.application.name}
 
     # 网关相关配置
+    gateway:
+      routes:
+        # 路由的ID，没有固定规则但要求唯一，建议配合服务名
+        - id: consul-provider-payment-routh-1
+          # 匹配路由成功后, 提供服务的路由地址
+          uri: http://localhost:8006
+          # 断言. 与此断言相匹配的路由路径才进行路由
+          predicates:
+            - Path=/payment/get/**
+
+        # 第二组配置
+        - id: consul-provider-payment-routh-1
+          uri: http://localhost:8006
+          predicates:
+            - Path=/payment/consul
+
 
