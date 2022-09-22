@@ -17,6 +17,7 @@ Tips:" 模块顺序
     - cloud-providerconsul-payment8006: 服务 -> 订单服务模块, 注册到consul注册中心
     - cloud-providerconsul-payment8008: 服务 -> 第二个订单服务模块, 注册到consul注册中心, 构成支付微服务集群
 
+    - cloud-gateway-gateway9527:        服务 -> Gateway网关服务
 
 
 
