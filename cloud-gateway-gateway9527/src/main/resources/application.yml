@@ -30,7 +30,23 @@ spring:
           uri: lb://consul-provider-payment
           # 断言. 与此断言相匹配的路由路径才进行路由
           predicates:
+            # Path -> PathRoutePredicate 路径断言. 即在consul-provider-payment微服务下存在该通配的路径
             - Path=/payment/get/**
+
+            # After -> AfterRoutePredicate after断言. 请求需要在此时间之后
+            - After=2022-09-23T16:32:03.344+08:00[Asia/Shanghai]
+
+            # Before -> BeforeRoutePredicate before断言. 请求需要在此时间之前
+            # - Before=2022-09-23T16:32:03.344+08:00[Asia/Shanghai]
+
+            # Between -> BetweenRoutePredicate between断言. 请求需要在此时间之间
+            # - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2017-01-21T17:42:47.789-07:00[America/Denver]
+
+            # Cookie -> CookieRoutePredicate. 要求请求的请求头中需要携带cookie指定的键值对. key=username, value=litway
+            - Cookie=username,litway
+
+            # Header -> HeaderRoutePredicate. 检查请求的请求头中是否携带指定的值. 要求请求头携带X-Request-Id值, 且为正整数
+            - Header=X-Request-Id, \d+
 
         # 第二组配置
         - id: consul-provider-payment-routh-1
