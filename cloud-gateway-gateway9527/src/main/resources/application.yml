@@ -48,6 +48,9 @@ spring:
             # Header -> HeaderRoutePredicate. 检查请求的请求头中是否携带指定的值. 要求请求头携带X-Request-Id值, 且为正整数
             - Header=X-Request-Id, \d+
 
+            # Query -> QueryRoutePredicate. 表示请求路径中需要携带red参数, 参数的值可以是gree green, 这是一个正则
+            - Query=red, gree.
+
         # 第二组配置
         - id: consul-provider-payment-routh-1
           # uri: http://localhost:8006
