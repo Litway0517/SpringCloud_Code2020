@@ -7,7 +7,7 @@ spring:
 
   # cloud
   cloud:
-    # 注册到consul
+    # 注册到consul -> 网关同样需要注册到consul服务
     consul:
       host: localhost
       port: 8500
