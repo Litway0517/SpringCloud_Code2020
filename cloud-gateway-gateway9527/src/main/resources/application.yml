@@ -28,7 +28,7 @@ spring:
           # 匹配路由成功后, 提供服务的路由地址
           # uri: http://localhost:8006
           uri: lb://consul-provider-payment
-          # 断言. 与此断言相匹配的路由路径才进行路由
+          # 断言. 与此断言相匹配的路由路径才进行路由. 所有断言均为真的时候才会转发该路由, 有一个为假则不执行.
           predicates:
             # Path -> PathRoutePredicate 路径断言. 即在consul-provider-payment微服务下存在该通配的路径
             - Path=/payment/get/**
