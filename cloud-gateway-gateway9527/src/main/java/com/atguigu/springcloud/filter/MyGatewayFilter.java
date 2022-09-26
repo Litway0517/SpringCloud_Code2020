@@ -27,8 +27,14 @@ public class MyGatewayFilter implements GlobalFilter, Ordered {
         String username = params.getFirst("username");
         log.info("请求的用户名：{}", username);
 
-        assert username != null;
+        if (username == null) {
+            log.info("用户名为null，非法用户~");
+            exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
+            exchange.getResponse().setComplete();
+            return null;
+        }
         if (!username.equals("litway")) {
+            log.info("用户名为不正确，不存在该用户：{}~", username);
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             exchange.getResponse().setComplete();
             return null;
