@@ -26,6 +26,8 @@ spring:
 
 
 mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapperLocations: classpath:mapper/*.xml
   # 所有Entity别名类所在包
   type-aliases-package: com.atguigu.springcloud.entities

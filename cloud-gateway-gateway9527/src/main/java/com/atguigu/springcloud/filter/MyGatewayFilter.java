@@ -34,7 +34,7 @@ public class MyGatewayFilter implements GlobalFilter, Ordered {
         MultiValueMap<String, String> params = request.getQueryParams();
         String username = params.getFirst("username");
 
-        log.info("请求方式: {}      |   请求路径: {}", id, uri);
+        log.info("请求方式: {}. 请求路径: {}", id, uri);
 
         if (username == null) {
             log.info("用户名为null, 非法用户~");
