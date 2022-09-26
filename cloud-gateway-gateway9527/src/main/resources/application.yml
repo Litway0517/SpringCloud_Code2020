@@ -51,6 +51,11 @@ spring:
             # Query -> QueryRoutePredicate. 表示请求路径中需要携带red参数, 参数的值可以是greeX, 这是一个正则. x可以是任意字母
             - Query=red, gree.
 
+          filters:
+            # AddRequestHeader
+            - AddRequestHeader=X-Test-OnePlus, litway
+
+
         # 第二组配置
         - id: consul-provider-payment-routh-1
           # uri: http://localhost:8006
