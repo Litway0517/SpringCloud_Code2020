@@ -11,6 +11,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.net.URI;
+
 
 // 别忘了加上
 @Component
@@ -23,18 +25,25 @@ public class MyGatewayFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+        // 请求id
+        String id = request.getId();
+        // 请求路径
+        URI uri = request.getURI();
+
+
         MultiValueMap<String, String> params = request.getQueryParams();
         String username = params.getFirst("username");
-        log.info("请求的用户名：{}", username);
+
+        log.info("请求方式: {}      |   请求路径: {}", id, uri);
 
         if (username == null) {
-            log.info("用户名为null，非法用户~");
+            log.info("用户名为null, 非法用户~");
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             exchange.getResponse().setComplete();
             return null;
         }
         if (!username.equals("litway")) {
-            log.info("用户名为不正确，不存在该用户：{}~", username);
+            log.info("用户名为不正确, 不存在该用户: {}~", username);
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             exchange.getResponse().setComplete();
             return null;
