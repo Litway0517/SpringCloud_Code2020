@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -28,7 +29,7 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id, HttpServletRequest httpRequest) {
         Payment payment = paymentService.getPaymentById(id);
         if (payment != null) {
             return new CommonResult(200, "查询成功, server-port = " + serverPort, payment);
