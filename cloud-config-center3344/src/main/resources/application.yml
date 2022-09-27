@@ -19,8 +19,23 @@ spring:
       server:
         git:
           # Config需要读取远程Git仓库的配置信息, 因此需要给出git地址
-          uri: git@github.com:Litway0517/SpringCloud_Code2020.git
+#          uri: git@github.com:Litway0517/SpringCloud_Code2020.git
+
+          # 更改成gitee
+          uri: https://gitee.com/Mingwee/SpringCloud_Code2020.git
+
+          ignore-local-ssh-settings: true
+          strict-host-key-checking: false
+          # 连接远程仓库需要认证, 使用ssh
+#          private-key: |
+#            -----BEGIN OPENSSH PRIVATE KEY-----
+
+#            -----END OPENSSH PRIVATE KEY-----
+
           # 仅仅地址不够, 还需要指明路径
           search-paths:
-            - SpringCloud_Code2020/cloud-config-server/src/main/resources/
+            - cloud-config-server
+      label: master
+
+
 
