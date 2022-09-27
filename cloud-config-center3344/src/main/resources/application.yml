@@ -34,7 +34,8 @@ spring:
 
           # 仅仅地址不够, 还需要指明路径
           search-paths:
-            - cloud-config-server
+            - cloud-config-server/src/main/resources
+      # 这是请求的分支名称, 默认寻找master分支.
       label: master
 
 
