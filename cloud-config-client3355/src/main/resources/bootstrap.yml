@@ -1,0 +1,21 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: cloud-config-client
+
+  cloud:
+    # config客户端
+    config:
+      # 加载的分支名称
+      label: master
+      # 加载的配置文件名称(感觉像前缀)
+      name: config
+      # 具体的文件后缀
+      profile: dev
+      # 配置中心地址
+      uri: http://localhost:3344
+
+
+
