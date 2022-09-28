@@ -6,6 +6,13 @@ spring:
     name: cloud-config-client
 
   cloud:
+    # 注册到consul
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+
     # config客户端
     config:
       # 加载的分支名称
