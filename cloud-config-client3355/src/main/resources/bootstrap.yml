@@ -24,5 +24,14 @@ spring:
       # 配置中心地址
       uri: http://localhost:3344
 
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露所有的接口
+        include: "*"
+
+
 
 
