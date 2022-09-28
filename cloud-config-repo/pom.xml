@@ -7,7 +7,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cloud-config-server</artifactId>
+    <artifactId>cloud-config-repo</artifactId>
 
     <dependencies>
         <!-- 通用api -->
