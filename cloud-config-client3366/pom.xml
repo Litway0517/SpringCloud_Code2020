@@ -10,6 +10,12 @@
     <artifactId>cloud-config-client3366</artifactId>
 
     <dependencies>
+        <!-- springcloud bus rabbitMQ -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
         <!-- Springcloud Config client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

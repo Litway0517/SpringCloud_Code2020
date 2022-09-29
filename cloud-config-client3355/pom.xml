@@ -12,6 +12,12 @@
     <artifactId>cloud-config-client3355</artifactId>
 
     <dependencies>
+        <!-- springcloud bus rabbitMQ -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
         <!-- springcloud config客户端 -->
         <!-- 这个坐标和springcloud server的坐标很容易弄混 客户端有starter 服务端没有 但是服务端有server -->
         <dependency>
