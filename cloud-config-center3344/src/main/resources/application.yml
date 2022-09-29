@@ -38,5 +38,18 @@ spring:
       # 这是请求的分支名称, 默认寻找master分支.
       label: master
 
+  # rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
+# 通过actuator将/bus/refresh暴露出去
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+          - "bus-refresh"
 
