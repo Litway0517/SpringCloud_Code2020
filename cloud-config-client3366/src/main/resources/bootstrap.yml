@@ -1,0 +1,28 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: cloud-config-client3366
+
+  # cloud
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+
+    # 配置中心
+    config:
+      uri: http://localhost:3344
+      label: master
+      name: config
+      profile: dev
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
