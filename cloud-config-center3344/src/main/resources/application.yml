@@ -24,8 +24,8 @@ spring:
           # 更改成gitee
           uri: https://gitee.com/Mingwee/SpringCloud_Code2020.git
 
-          ignore-local-ssh-settings: true
-          strict-host-key-checking: false
+#          ignore-local-ssh-settings: true
+#          strict-host-key-checking: false
           # 连接远程仓库需要认证, 使用ssh
 #          private-key: |
 #            -----BEGIN OPENSSH PRIVATE KEY-----
@@ -50,6 +50,5 @@ management:
   endpoints:
     web:
       exposure:
-        exclude:
-          - "bus-refresh"
+        include: "bus-refresh"
 

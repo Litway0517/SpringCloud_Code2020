@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-config-client3366
+    name: cloud-config-client
 
   # cloud
   cloud:
