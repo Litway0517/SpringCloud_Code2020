@@ -18,7 +18,7 @@ spring:
       uri: http://localhost:3344
       label: master
       name: config
-      profile: dev
+      profile: prod
 
   # rabbitMQ
   rabbitmq:

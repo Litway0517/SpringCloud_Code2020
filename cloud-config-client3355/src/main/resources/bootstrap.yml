@@ -20,7 +20,7 @@ spring:
       # 加载的配置文件名称(感觉像前缀)
       name: config
       # 具体的文件后缀
-      profile: dev
+      profile: prod
       # 配置中心地址
       uri: http://localhost:3344
 
