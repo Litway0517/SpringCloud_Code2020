@@ -10,7 +10,7 @@ spring:
     # nacos相关
     nacos:
       discovery:
-        # nacos地址
+        # nacos地址, 本模块将会注册到下面的地址
         server-addr: http://localhost:8848
 
 
