@@ -1,0 +1,22 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: nacos-provider-payment
+
+
+  cloud:
+    # nacos相关
+    nacos:
+      discovery:
+        # nacos地址
+        server-addr: http://localhost:8848
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
