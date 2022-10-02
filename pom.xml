@@ -24,6 +24,7 @@
         <module>cloud-config-center3344</module>
         <module>cloud-config-client3355</module>
         <module>cloud-config-client3366</module>
+        <module>cloud-alibaba-provider-payment9001</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -67,13 +68,13 @@
             </dependency>
 
             <!--spring cloud alibaba 2.1.0.RELEASE-->
-            <dependency>
+            <!--<dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>2.1.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
 
             <dependency>
                 <groupId>mysql</groupId>
