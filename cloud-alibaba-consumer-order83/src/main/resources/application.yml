@@ -8,6 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
+        # 注册到nacos
         server-addr: http://localhost:8848
 
 
