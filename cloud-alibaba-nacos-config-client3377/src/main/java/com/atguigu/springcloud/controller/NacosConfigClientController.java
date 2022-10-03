@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 
+import com.atguigu.springcloud.entities.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class NacosConfigClientController {
     private String configInfo;
 
     @GetMapping("/nacos/config/info")
-    public String getConfigInfo() {
-        return configInfo;
+    public CommonResult<String> getConfigInfo() {
+        return new CommonResult<>(200, "请求成功", configInfo);
     }
 }
