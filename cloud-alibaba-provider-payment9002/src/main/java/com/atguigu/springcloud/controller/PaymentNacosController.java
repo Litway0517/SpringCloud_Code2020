@@ -16,7 +16,7 @@ public class PaymentNacosController {
 
     @GetMapping("/payment/nacos/{id}")
     public CommonResult<String> getPayment(@PathVariable("id") Integer id) {
-        String s = "nacos registry, serverPort: " + serverPort + ".\tid" + id;
+        String s = "nacos registry, serverPort: " + serverPort + ".\tid: " + id;
         return new CommonResult<>(200, "请求成功", s);
     }
 
