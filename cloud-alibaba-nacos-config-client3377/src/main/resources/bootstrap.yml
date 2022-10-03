@@ -17,8 +17,11 @@ spring:
       config:
         # 读取配置失败, 可能是多加了个/的原因, 去掉
         server-addr: http://localhost:8848
+        # 给出读取分组的名称
+        group: TEST_GROUP
         # 配置中心上的文件格式, 目前仅支持properties, yaml
         file-extension: yaml
+
 
 
 # Nacos作为配置中心的时候, 有一个DataId的属性, 这个属性是为了配置文件服务的, DataId的值按照下面的格式给出
