@@ -7,6 +7,13 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 纳科配置客户端控制器
+ *
+ * @author DELL_
+ * @date 2022/10/06
+ */
+
 // 控制器中加入@RefreshScope注解, 使当前类配置支持Nacos动态刷新配置功能
 @RefreshScope
 
