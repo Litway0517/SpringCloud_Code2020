@@ -37,7 +37,7 @@ spring:
         namespace: 6fa329fc-dd8d-4363-901a-e8d177cb9b9b
 
         # 加载分组的名称
-        group: DEFAULT_GROUP
+        # group: DEFAULT_GROUP
 
         # 配置中心上的文件格式, 目前仅支持properties, yaml
         file-extension: yaml
