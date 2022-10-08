@@ -32,9 +32,9 @@ public class PaymentController {
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id, HttpServletRequest httpRequest) {
         Payment payment = paymentService.getPaymentById(id);
         if (payment != null) {
-            return new CommonResult(200, "查询成功, server-port = " + serverPort, payment);
+            return new CommonResult<>(200, "查询成功, server-port = " + serverPort, payment);
         } else {
-            return new CommonResult(444, "没有对应记录,查询ID: " + id, null);
+            return new CommonResult<>(444, "没有对应记录,查询ID: " + id, null);
         }
     }
 
