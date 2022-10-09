@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
+/**
+ * controller层测试
+ *
+ * @author DELL_
+ * @date 2022/10/09
+ */
 @RestController
 public class PaymentNacosController {
 
