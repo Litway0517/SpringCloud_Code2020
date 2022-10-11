@@ -11,36 +11,36 @@ spring:
       # nacos服务发现 注册中心
       discovery:
         # 有时候可能会出现注册失败的原因, 提示请求失败, 在addr末尾加上/试试
-        # server-addr: http://localhost:8848/
+         server-addr: http://localhost:8848/
 
         # 注册到Linux的nacos集群, 注册中心地址改成Linux服务器上面的nginx虚拟端口, nginx负责反向代理路由转发
-        server-addr: 192.168.62.131:8090
+#        server-addr: 192.168.62.131:8090
 
       # nacos配置中心
       config:
         # windows--------------------
         # 读取配置失败, 可能是多加了个/的原因, 去掉
-        # server-addr: http://localhost:8848
+         server-addr: http://localhost:8848
 
         # 给出读取命名空间的流水号id -> 这个是windows上面的单机版 mysql
-        # namespace: 36b9587e-ccd8-48b5-8aff-b767d71eec70
+         namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
 
         # 给出读取分组的名称
-        # group: TEST_GROUP
+         group: TEST_GROUP
         # group: DEV_GROUP
 
         # Linux----------------------
         # 配置中心地址改为Linux中的nacos集群, Linux的nginx负责转发
-        server-addr: 192.168.62.131:8090
+#        server-addr: 192.168.62.131:8090
 
         # 命名空间的id -> Linux中的nacos集群
-        namespace: 6fa329fc-dd8d-4363-901a-e8d177cb9b9b
+#        namespace: 6fa329fc-dd8d-4363-901a-e8d177cb9b9b
 
         # 加载分组的名称
-        group: DEFAULT_GROUP
+#        group: DEFAULT_GROUP
 
         # 配置中心上的文件格式, 目前仅支持properties, yaml
-        file-extension: yaml
+#        file-extension: yaml
 
 
 
