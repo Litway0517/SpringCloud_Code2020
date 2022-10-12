@@ -10,6 +10,12 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
+/**
+ * 订单层
+ *
+ * @author DELL_
+ * @date 2022/10/12
+ */
 @RestController
 public class OrderConsulController {
 
@@ -25,7 +31,7 @@ public class OrderConsulController {
     }
 
     @GetMapping(value = "/consumer/payment/getEntity/consul/{id}")
-    public CommonResult<Payment> consumerConsulForEntity(@PathVariable("id") Long id) {
+    public CommonResult<?> consumerConsulForEntity(@PathVariable("id") Long id) {
         ResponseEntity<CommonResult> response = restTemplate.getForEntity(PAYMENT_URL + "/get/" + id, CommonResult.class);
         if (response.getStatusCode().is2xxSuccessful()) {
             return response.getBody();

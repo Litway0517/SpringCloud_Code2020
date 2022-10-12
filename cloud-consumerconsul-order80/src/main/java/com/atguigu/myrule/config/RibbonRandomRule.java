@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 带随机规则
+ * 随机规则
  *
  * @author DELL_
  * @date 2022/09/20
