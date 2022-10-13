@@ -45,7 +45,7 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_URL + "/create", payment, CommonResult.class);
     }
 
-    @GetMapping("/consumer/payment/lb")
+    @GetMapping("/payment/lb")
     public CommonResult<String> testRobinRule() {
         List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
 
@@ -59,7 +59,7 @@ public class OrderController {
         URI uri = serviceInstance.getUri();
 
         // 通过uri去请求
-        String result = restTemplate.getForObject(uri, String.class);
+        String result = restTemplate.getForObject(uri + "/payment/lb", String.class);
         return new CommonResult<>(200, "请求成功", result);
 
     }
