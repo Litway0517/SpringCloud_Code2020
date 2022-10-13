@@ -20,14 +20,14 @@ public class PaymentHystrixController {
     private PaymentHystrixService paymentHystrixService;
 
 
-    @GetMapping("/payment/{id}")
+    @GetMapping("/payment/OK/{id}")
     public CommonResult<String> reqOK(@PathVariable("id") Integer id) {
         String result = paymentHystrixService.reqOK(id);
         log.info(result);
         return new CommonResult<>(200, "请求成功", result);
     }
 
-    @GetMapping("/payment/{id}")
+    @GetMapping("/payment/timeout/{id}")
     public CommonResult<String> reqTimeout(@PathVariable("id") Integer id) {
         String result = paymentHystrixService.reqTimeout(id);
         log.info(result);
