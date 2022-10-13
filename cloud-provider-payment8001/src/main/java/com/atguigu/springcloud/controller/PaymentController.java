@@ -33,25 +33,25 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
     @Value("${server.port}")
-    private String serverPost;
+    private String serverPort;
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         if (payment != null) {
-            return new CommonResult(200, "查询成功, server-port = " + serverPost, payment);
+            return new CommonResult<>(200, "查询成功, server-port = " + serverPort, payment);
         } else {
-            return new CommonResult(444, "没有对应记录,查询ID: " + id, null);
+            return new CommonResult<>(444, "没有对应记录,查询ID: " + id, null);
         }
     }
 
     @PostMapping(value = "/payment/create")
-    public CommonResult create(@RequestBody Payment payment) {
+    public CommonResult<?> create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         if (result > 0) {
-            return new CommonResult(200, "插入数据库成功, server-port = " + serverPost, result);
+            return new CommonResult<>(200, "插入数据库成功, server-port = " + serverPort, result);
         } else {
-            return new CommonResult(444, "插入数据库失败", null);
+            return new CommonResult<>(444, "插入数据库失败", null);
         }
     }
 
@@ -78,6 +78,13 @@ public class PaymentController {
         });
         return new CommonResult<DiscoveryClient>(200, "DiscoveryClient相关信息", discoveryClient);
     }
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB()
+    {
+        return serverPort;
+    }
+
 
 }
 
