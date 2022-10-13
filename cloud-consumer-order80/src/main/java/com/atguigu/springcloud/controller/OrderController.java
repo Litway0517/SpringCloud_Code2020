@@ -2,10 +2,15 @@ package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.loadlbalance.MyRobinRule;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/consumer")
@@ -21,19 +26,44 @@ public class OrderController {
      */
     private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE/payment";
 
+    @Resource
+    private MyRobinRule myRobinRule;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @Resource
     private RestTemplate restTemplate;
 
     @GetMapping("/payment/get/{id}")
-    public CommonResult<Payment> getPayment(@PathVariable("id") Long id) {
+    public CommonResult<?> getPayment(@PathVariable("id") Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/get/" + id, CommonResult.class);
     }
 
     @GetMapping("/payment/create")
-    public CommonResult<Payment> create(Payment payment) {
+    public CommonResult<?> create(Payment payment) {
         return restTemplate.postForObject(PAYMENT_URL + "/create", payment, CommonResult.class);
     }
+
+    @GetMapping("/consumer/payment/lb")
+    public CommonResult<String> testRobinRule() {
+        List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+
+        if (serviceInstanceList == null || serviceInstanceList.size() == 0) {
+            throw new RuntimeException("获取服务实例列表异常");
+        }
+
+        // 得到具体服务的实例
+        ServiceInstance serviceInstance = myRobinRule.getServiceInstance(serviceInstanceList);
+        // 根据实例得到uri
+        URI uri = serviceInstance.getUri();
+
+        // 通过uri去请求
+        String result = restTemplate.getForObject(uri, String.class);
+        return new CommonResult<>(200, "请求成功", result);
+
+    }
+
 
 
 }
