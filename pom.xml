@@ -29,6 +29,7 @@
         <module>cloud-alibaba-consumer-order83</module>
         <module>cloud-alibaba-nacos-config-client3377</module>
         <module>cloud-provider-hystrix-payment8001</module>
+        <module>cloud-consumer-feign-hystrix-order80</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
