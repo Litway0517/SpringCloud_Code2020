@@ -1,11 +1,11 @@
-package com.atguigu.springcloud.controller;
+package com.litway.springcloud.controller;
 
 
 import com.atguigu.springcloud.entities.CommonResult;
-import com.atguigu.springcloud.service.PaymentService;
+import com.litway.springcloud.service.PaymentFeignFallbackService;
+import com.litway.springcloud.service.PaymentService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,8 @@ import javax.annotation.Resource;
 @RequestMapping("/consumer")
 
 // 下列方法若加上HystrixCommand注解, 则表示当方法出现异常 超时等待 等情况会有兜底(没有HystrixCommand注解则没有兜底 testOKApi)
-@DefaultProperties(defaultFallback = "defaultGlobalFallback")
+// 超时控制默认1s
+// @DefaultProperties(defaultFallback = "defaultGlobalFallback")
 public class OrderHystrixController {
 
     @Resource
@@ -31,7 +32,7 @@ public class OrderHystrixController {
     // @HystrixCommand(fallbackMethod = "testTimeoutApiHandler", commandProperties = {
     //         @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
     // })
-    @HystrixCommand
+    // @HystrixCommand
     @GetMapping("/payment/timeout/{id}")
     public CommonResult<String> testTimeoutApi(@PathVariable("id") Integer id) {
         CommonResult<String> result = paymentService.reqTimeout(id);

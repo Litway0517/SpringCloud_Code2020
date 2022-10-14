@@ -22,6 +22,7 @@ public class PaymentHystrixController {
 
     @GetMapping("/payment/OK/{id}")
     public CommonResult<String> reqOK(@PathVariable("id") Integer id) {
+        // int i = 10 / 0;
         String result = paymentHystrixService.reqOK(id);
         log.info(result);
         return new CommonResult<>(200, "请求成功", result);
