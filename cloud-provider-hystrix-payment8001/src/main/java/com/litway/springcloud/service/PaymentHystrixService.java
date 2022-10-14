@@ -13,6 +13,7 @@ public class PaymentHystrixService {
     /**
      * 正常访问
      */
+    // 该方法如果异常会返回错误信息 不会指定默认的降级方法
     public String reqOK(Integer id) {
         return "线程池: " + Thread.currentThread().getName() + "paymentInfo_OK,id: " + id + "\t" + "O(∩_∩)O";
     }
