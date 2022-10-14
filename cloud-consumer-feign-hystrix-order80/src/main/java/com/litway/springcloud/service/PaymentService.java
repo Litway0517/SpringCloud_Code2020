@@ -1,4 +1,4 @@
-package com.atguigu.springcloud.service;
+package com.litway.springcloud.service;
 
 
 import com.atguigu.springcloud.entities.CommonResult;
@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(value = "cloud-provider-hystrix-payment")
-@RequestMapping("/consumer/hystrix")
+// @RequestMapping("/consumer/hystrix")
+@FeignClient(value = "cloud-provider-hystrix-payment", fallback = PaymentFeignFallbackService.class)
+
 public interface PaymentService {
 
-    @GetMapping("/payment/OK/{id}")
+    @GetMapping("/consumer/hystrix/payment/OK/{id}")
     public CommonResult<String> reqOK(@PathVariable("id") Integer id);
 
-    @GetMapping("/payment/timeout/{id}")
+    @GetMapping("/consumer/hystrix/payment/timeout/{id}")
     public CommonResult<String> reqTimeout(@PathVariable("id") Integer id);
 
 }
