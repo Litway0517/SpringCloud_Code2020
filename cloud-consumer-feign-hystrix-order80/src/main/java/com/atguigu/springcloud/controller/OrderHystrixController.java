@@ -3,6 +3,7 @@ package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,9 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/consumer")
+
+// 下列方法若加上HystrixCommand注解, 则表示当方法出现异常 超时等待 等情况会有兜底(没有HystrixCommand注解则没有兜底 testOKApi)
+@DefaultProperties(defaultFallback = "defaultGlobalFallback")
 public class OrderHystrixController {
 
     @Resource
@@ -24,9 +28,10 @@ public class OrderHystrixController {
         return paymentService.reqOK(id);
     }
 
-    @HystrixCommand(fallbackMethod = "testTimeoutApiHandler", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
-    })
+    // @HystrixCommand(fallbackMethod = "testTimeoutApiHandler", commandProperties = {
+    //         @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
+    // })
+    @HystrixCommand
     @GetMapping("/payment/timeout/{id}")
     public CommonResult<String> testTimeoutApi(@PathVariable("id") Integer id) {
         CommonResult<String> result = paymentService.reqTimeout(id);
@@ -35,6 +40,10 @@ public class OrderHystrixController {
 
     public CommonResult<String> testTimeoutApiHandler(@PathVariable("id") Integer id) {
         return new CommonResult<>(200, "请求失败", "消费端80调用支付微服务8001失败，系统繁忙请稍后重试");
+    }
+
+    public CommonResult<String> defaultGlobalFallback() {
+        return new CommonResult<>(200, "请求失败", "系统繁忙，请稍后重试~");
     }
 
 
