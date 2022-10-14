@@ -14,12 +14,12 @@ spring:
         namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
 
 
-      config:
-        server-addr: 127.0.0.1:8848
-        namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
-        ext-config:
-            dataId: nacos-config-client-test.yaml
-        group: DEFAULT_GROUP
+#      config:
+#        server-addr: 127.0.0.1:8848
+#        namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
+#        ext-config:
+#            dataId: nacos-config-client-test.yaml
+#        group: DEFAULT_GROUP
 
 
 

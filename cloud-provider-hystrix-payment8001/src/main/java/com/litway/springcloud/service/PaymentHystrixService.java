@@ -25,17 +25,17 @@ public class PaymentHystrixService {
         commandProperties参数 -> 设置方法正常运行的峰值参数为3s, 超过3s则执行fallbackMethod指定的兜底方法
      */
     @HystrixCommand(fallbackMethod = "reqTimeoutHandler", commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="3000")
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="5000")
     })
     public String reqTimeout(Integer id) {
 
-        int i = 10 / 0;
+        // int i = 10 / 0;
 
-        // try {
-        //     TimeUnit.SECONDS.sleep(5);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "线程池:" + Thread.currentThread().getName() + "  paymentInfo_TimeOut,id: " + id + "\t" + "O(∩_∩)O";
     }
 
