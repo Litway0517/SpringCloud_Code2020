@@ -14,3 +14,12 @@ spring:
         namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
 
 
+# 配置OpenFeign的超时调用
+#feign:
+#  hystrix:
+#    enabled: true
+
+ribbon:
+  # RPC调用超时
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
