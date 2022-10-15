@@ -51,13 +51,15 @@ public class PaymentHystrixService {
     @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback", commandProperties = {
             // 开启 服务熔断
             @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
-            // 设置 请求次数阈值
+            // 设置 请求次数阈值 -> 10次
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
-            // 设置 窗口时间期
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
-            // 设置 失败比率
+            // 设置 滑动窗口 -> 10s 如果在10s内, 请求达到了10次或以上, 并且失败比例达到了0.6, 那么服务熔断. 任何一个条件不满足则不会出发服务熔断.
+            @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "20000"),
+            // 上一次提交是错误的: 设置 休眠窗口 -> 10s 当服务被断开后, 10s内不在接收请求, 10s后再尝试是否打开服务
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "30000"),
+            // 设置 失败比率 -> 60%
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),
-            // 在窗口时间期之内, 请求次数达到了10次, 且失败6次, 那么断路器开启, 服务熔断
+            // 在20s内, 请求次数>=10次, 且失败次数达到了0.6, 那么断路器开启, 服务熔断. 经过30s后, 服务会再次尝试开启.
     })
     public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
         if (id < 0) {

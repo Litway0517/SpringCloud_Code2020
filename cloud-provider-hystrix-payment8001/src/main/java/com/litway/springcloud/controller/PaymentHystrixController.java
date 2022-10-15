@@ -36,4 +36,12 @@ public class PaymentHystrixController {
     }
 
 
+    // 服务熔断
+    @GetMapping("/circuit/break/{id}")
+    public CommonResult<String> circuitBreak(@PathVariable("id") Integer id) {
+        String result = paymentHystrixService.paymentCircuitBreaker(id);
+        return new CommonResult<>(200, "请求成功", result);
+    }
+
+
 }
