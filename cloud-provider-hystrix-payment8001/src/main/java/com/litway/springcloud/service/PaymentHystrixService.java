@@ -1,9 +1,11 @@
 package com.litway.springcloud.service;
 
 
+import cn.hutool.core.util.IdUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +44,32 @@ public class PaymentHystrixService {
 
     public String reqTimeoutHandler(Integer id) {
         return "线程池:" + Thread.currentThread().getName() + "系统繁忙，请稍后重试。id：" + id;
+    }
+
+
+    // demo: 服务熔断
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback", commandProperties = {
+            // 开启 服务熔断
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
+            // 设置 请求次数阈值
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+            // 设置 窗口时间期
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
+            // 设置 失败比率
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),
+            // 在窗口时间期之内, 请求次数达到了10次, 且失败6次, 那么断路器开启, 服务熔断
+    })
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        if (id < 0) {
+            throw new RuntimeException("******id 不能负数");
+        }
+        String serialNumber = IdUtil.simpleUUID();
+
+        return Thread.currentThread().getName() + "\t" + "调用成功，流水号: " + serialNumber;
+    }
+
+    public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id) {
+        return "id 不能负数，请稍后再试，/(ㄒoㄒ)/~~   id: " + id;
     }
 }
 
