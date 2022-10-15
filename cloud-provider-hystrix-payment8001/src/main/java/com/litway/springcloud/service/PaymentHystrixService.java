@@ -59,7 +59,7 @@ public class PaymentHystrixService {
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "30000"),
             // 设置 失败比率 -> 60%
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),
-            // 在20s内, 请求次数>=10次, 且失败次数达到了0.6, 那么断路器开启, 服务熔断. 经过30s后, 服务会再次尝试开启.
+            // TODO: 在20s内, 请求次数>=10次, 且失败次数达到了0.6, 那么断路器开启, 服务熔断. 经过30s后, 服务会再次尝试开启.
     })
     public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
         if (id < 0) {
