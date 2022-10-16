@@ -32,6 +32,11 @@ Tips:" 模块顺序
 
     - cloud-alibaba-nacos-config-client3377:配置中心client端
 
+    - cloud-provider-hystrix-payment8001:   服务 -> hystrix支付微服务
+    - cloud-consumer-feign-hystrix-order80: 消费 -> hystrix消费微服务, 通过OpenFeign调用
+    - cloud-consumer-hystrix-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件
+
+
 
 
 
