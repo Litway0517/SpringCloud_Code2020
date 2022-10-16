@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 
 @RestController
@@ -26,6 +27,11 @@ public class SentinelServiceController {
 
     @GetMapping(value = "/test/")
     public CommonResult<?> testApiA() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(800);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return new CommonResult<>(200, "请求成功", IdUtil.fastSimpleUUID());
     }
 
