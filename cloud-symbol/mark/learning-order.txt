@@ -24,17 +24,17 @@ Tips:" 模块顺序
     - cloud-config-repo:                    配置中心仓库repo, Springcloud Config需要结合一个远程Git仓库做配置中心仓库使用, 直接使用模块代替仓库
     - cloud-config-center3344:              配置中心Config Server -> Springcloud分为Server和Client两端, 两者坐标不一致, server端的主启动类上需要加@EnableConfigServer注解
     - cloud-config-client3355:              配置中心client端, 用来连接server端
-    - cloud-config-client3366:              配置中心client端, 用来连接server端
+    - cloud-config-client3366:              配置中心client端, 用来连接server端, 构成spring cloud config配置中心客户端集群, 结合bus rabbitMQ测试一次刷新处处更新功能
 
     - cloud-alibaba-provider-payment9001:   服务 -> 支付微服务, 注册到Nacos注册中心
-    - cloud-alibaba-provider-payment9002:   服务 -> 支付微服务, 注册到Nacos注册中心
-    - cloud-alibaba-consumer-order83:       消费 -> 消费微服务, 注册到Nacos注册中心, 调用支付微服务
+    - cloud-alibaba-provider-payment9002:   服务 -> 支付微服务, 注册到Nacos注册中心, 构成注册到Nacos注册中心的微服务集群
+    - cloud-alibaba-consumer-order83:       消费 -> 消费微服务, 注册到Nacos注册中心, 调用支付微服务, 并测试负载均衡等功能
 
     - cloud-alibaba-nacos-config-client3377:配置中心client端
 
-    - cloud-provider-hystrix-payment8001:   服务 -> hystrix支付微服务
-    - cloud-consumer-feign-hystrix-order80: 消费 -> hystrix消费微服务, 通过OpenFeign调用
-    - cloud-consumer-hystrix-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件
+    - cloud-provider-hystrix-payment8001:   服务 -> 引入hystrix断路器的支付微服务
+    - cloud-consumer-feign-hystrix-order80: 消费 -> 引入hystrix断路器的消费微服务, 通过OpenFeign调用
+    - cloud-consumer-hystrix-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件, 监控8001微服务
 
 
 
