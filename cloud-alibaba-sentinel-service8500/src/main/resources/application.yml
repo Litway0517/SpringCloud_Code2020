@@ -1,0 +1,23 @@
+server:
+  port: 8500
+
+spring:
+  application:
+    name: cloud-alibaba-sentinel-service
+
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 127.0.0.1:8848
+        # 空间
+        namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
+
+    sentinel:
+      enabled: true
+      transport:
+        # sentinel前端的界面和后端的逻辑是分开的, dashboard就是前端界面地址, 默认8080端口
+        dashboard: 127.0.0.1:8080
+        # 本地启动 HTTP API Server 的端口号. sentinel在监控微服务时需要将数据与dashboard通信, 这个端口就是用于监控的, 可以不配置
+        # 当8719被占用后, 将会自动 +1 扫描未占用的端口
+        port: 8719
