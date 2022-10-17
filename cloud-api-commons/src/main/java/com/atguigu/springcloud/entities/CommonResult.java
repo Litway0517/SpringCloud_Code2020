@@ -15,4 +15,8 @@ public class CommonResult<T> {
     public CommonResult(Integer code, String message) {
         this(code, message, null);
     }
+
+    public CommonResult<T> success(T data) {
+        return new CommonResult<>(200, "请求成功", data);
+    }
 }
