@@ -1,5 +1,6 @@
 package com.atguigu.springcloud.controller;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.SentinelService;
@@ -33,6 +34,18 @@ public class SentinelServiceController {
             throw new RuntimeException(e);
         }
         return new CommonResult<>(200, "请求成功", IdUtil.fastSimpleUUID());
+    }
+
+    // 订单接口
+    @GetMapping("/test/order")
+    public CommonResult<?> testOrder() {
+        return new CommonResult<>(200, "请求成功", IdUtil.fastSimpleUUID());
+    }
+
+    // 支付接口
+    @GetMapping("/test/payment")
+    public CommonResult<?> testPayment() {
+        return new CommonResult<>(200, "请求成功", DateUtil.date());
     }
 
 }
