@@ -4,6 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.SentinelService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 
 @RestController
+@Slf4j
 @RequestMapping("/sentinel")
 public class SentinelServiceController {
 
@@ -55,6 +57,14 @@ public class SentinelServiceController {
     // *************测试 -> 流控效果之Warm up 热启动*************
     @GetMapping("/test/warmup")
     public CommonResult<?> testWarmup() {
+        return new CommonResult<>().success(IdUtil.simpleUUID());
+    }
+
+
+    // *************测试 -> 流控效果之排队等待*************
+    @GetMapping("/test/wait")
+    public CommonResult<?> testWait() {
+        log.info(Thread.currentThread().getName() + "\t" + "...Wait");
         return new CommonResult<>().success(IdUtil.simpleUUID());
     }
 }
