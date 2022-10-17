@@ -26,6 +26,7 @@ public class SentinelServiceController {
         return new CommonResult<>(200, "请求成功", result);
     }
 
+    // *************测试 -> 流控模式之直接失败 和 关联*************
     @GetMapping(value = "/test/")
     public CommonResult<?> testApiA() {
         try {
@@ -36,6 +37,8 @@ public class SentinelServiceController {
         return new CommonResult<>(200, "请求成功", IdUtil.fastSimpleUUID());
     }
 
+
+    // *************测试 -> 流控模式之关联*************
     // 订单接口
     @GetMapping("/test/order")
     public CommonResult<?> testOrder() {
@@ -48,4 +51,10 @@ public class SentinelServiceController {
         return new CommonResult<>(200, "请求成功", DateUtil.date());
     }
 
+
+    // *************测试 -> 流控效果之Warm up 热启动*************
+    @GetMapping("/test/warmup")
+    public CommonResult<?> testWarmup() {
+        return new CommonResult<>().success(IdUtil.simpleUUID());
+    }
 }
