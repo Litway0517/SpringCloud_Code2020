@@ -67,4 +67,19 @@ public class SentinelServiceController {
         log.info(Thread.currentThread().getName() + "\t" + "...Wait");
         return new CommonResult<>().success(IdUtil.simpleUUID());
     }
+
+
+    /*
+        服务降级测试
+     */
+
+    // *************测试 -> 服务降级之RT*************
+    @GetMapping("/test/circuit")
+    public CommonResult<?> testCircuit() {
+        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        log.info("测试RT");
+        return new CommonResult<>().success("测试RT" + IdUtil.simpleUUID());
+    }
+
+
 }
