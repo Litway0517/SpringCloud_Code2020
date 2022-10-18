@@ -3,6 +3,7 @@ package com.atguigu.springcloud.controller;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.SentinelService;
 import lombok.extern.slf4j.Slf4j;
@@ -104,13 +105,13 @@ public class SentinelServiceController {
         热点规则测试
      */
     @GetMapping("/test/testhotkey")
-    @SentinelResource(value = "testhotkey", blockHandler = "testHotKeyHandler")
-    public CommonResult<?> testHotKey(@RequestParam(value = "p1", required = false, defaultValue = "null") String p1,
-                                       @RequestParam(value = "p2", required = false, defaultValue = "null") String p2) {
+    @SentinelResource(value = "testhotkey", blockHandler = "testHotKeyHandlerMethod")
+    public CommonResult<?> testHotKey(@RequestParam(value = "p1", required = false) String p1,
+                                       @RequestParam(value = "p2", required = false) String p2) {
         return new CommonResult<>().success("测试正常, p1: " + p1 + ". p2: " + p2);
     }
 
-    public CommonResult<?> testHotKeyHandler(String p1, String p2) {
+    public CommonResult<?> testHotKeyHandlerMethod(String p1, String p2, BlockException ex) {
         return new CommonResult<>().success("测试失败, p1: " + p1 + ". p2: " + p2);
     }
 
