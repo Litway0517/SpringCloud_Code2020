@@ -2,13 +2,11 @@ package com.atguigu.springcloud.controller;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.SentinelService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
@@ -76,7 +74,11 @@ public class SentinelServiceController {
     // *************测试 -> 服务降级之RT*************
     @GetMapping("/test/circuit")
     public CommonResult<?> testCircuit() {
-        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         log.info("测试RT");
         return new CommonResult<>().success("测试RT" + IdUtil.simpleUUID());
     }
@@ -96,6 +98,22 @@ public class SentinelServiceController {
         int i = 10 / 0;
         return new CommonResult<>().success("测试异常数" + IdUtil.simpleUUID());
     }
+
+
+    /*
+        热点规则测试
+     */
+    @GetMapping("/test/testhotkey")
+    @SentinelResource(value = "testhotkey", blockHandler = "testHotKeyHandler")
+    public CommonResult<?> testHotKey(@RequestParam(value = "p1", required = false, defaultValue = "null") String p1,
+                                       @RequestParam(value = "p2", required = false, defaultValue = "null") String p2) {
+        return new CommonResult<>().success("测试正常, p1: " + p1 + ". p2: " + p2);
+    }
+
+    public CommonResult<?> testHotKeyHandler(String p1, String p2) {
+        return new CommonResult<>().success("测试失败, p1: " + p1 + ". p2: " + p2);
+    }
+
 
 
 }
