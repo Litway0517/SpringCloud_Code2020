@@ -19,4 +19,8 @@ public class CommonResult<T> {
     public CommonResult<T> success(T data) {
         return new CommonResult<>(200, "请求成功", data);
     }
+
+    public CommonResult<T> error() {
+        return new CommonResult<>(400, "操作失败");
+    }
 }
