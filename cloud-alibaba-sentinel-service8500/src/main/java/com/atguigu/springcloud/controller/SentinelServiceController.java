@@ -81,5 +81,13 @@ public class SentinelServiceController {
         return new CommonResult<>().success("测试RT" + IdUtil.simpleUUID());
     }
 
+    // *************测试 -> 服务降级之异常比例*************
+    @GetMapping("/test/ratio")
+    public CommonResult<?> testExceptionRatio() {
+        log.info("测试异常比例");
+        int i = 10 / 0;
+        return new CommonResult<>().success("测试RT" + IdUtil.simpleUUID());
+    }
+
 
 }
