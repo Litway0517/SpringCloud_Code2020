@@ -5,6 +5,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.litway.springcloud.alibaba.myfallback.MyFallback;
 import com.litway.springcloud.alibaba.myhandler.MyHandler;
+import com.litway.springcloud.alibaba.service.PaymentFeignService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import javax.annotation.Resource;
 @RequestMapping("/sentinel/fallback")
 public class ConsumerOrderController {
 
+
+    // =====================RestTemplate调用
     @Value("${service-url.nacos-user-service}")
     private String SERVICE_URL;
 
@@ -58,5 +61,17 @@ public class ConsumerOrderController {
 
         return new CommonResult<>().success(commonResult);
     }
+
+
+    // ===================OpenFeign调用
+    @Resource
+    private PaymentFeignService paymentFeignService;
+    @GetMapping("/consumer/feign/paymentSQL/{id}")
+    public CommonResult<?> paymentSQL(@PathVariable("id") Long id) {
+        CommonResult<?> result = paymentFeignService.paymentSQL(id);
+        return new CommonResult<>().success(result);
+    }
+
+
 
 }
