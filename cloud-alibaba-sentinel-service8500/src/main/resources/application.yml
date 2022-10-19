@@ -11,7 +11,7 @@ spring:
         # 注册中心地址
         server-addr: 127.0.0.1:8848
         # 空间
-#        namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
+        namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
 
     sentinel:
       enabled: true
@@ -25,9 +25,9 @@ spring:
       datasource:
         ds1:
           nacos:
-            server-addr: 127.0.0.1:8848
+            serverAddr: 127.0.0.1:8848
             dataId: cloud-alibaba-sentinel-service
             groupId: DEFAULT_GROUP
-
-            data-type: json
-            rule-type: flow
+            namespace: 36df2268-32ce-4f11-95bc-e3d92a1e025e
+            dataType: json
+            ruleType: flow
