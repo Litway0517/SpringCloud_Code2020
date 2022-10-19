@@ -35,7 +35,13 @@ public class ConsumerOrderController {
     // @SentinelResource(value = "fallback", fallbackClass = {MyFallback.class}, fallback = "fallbackHandler")
 
     // 有blockHandler配置 -> 违反sentinel控制台规则时触blockHandler逻辑
-    @SentinelResource(value = "fallback", blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler")
+    // @SentinelResource(value = "blockHandler", blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler")
+
+    // fallback和blockHandler均有, 当请求发生错误时, 且违背限流规则时, 优先返回blockHandler方法, 其实blockHandler是一个特殊的500
+    @SentinelResource(value = "fallbackAndBlockHandler",
+            fallbackClass = {MyFallback.class}, fallback = "fallbackHandler",
+            blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler"
+    )
     public CommonResult<?> getPayment(@PathVariable("id") Long userId) {
         CommonResult<?> commonResult = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + userId, CommonResult.class, userId);
 
