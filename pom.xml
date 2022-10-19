@@ -33,6 +33,8 @@
         <module>cloud-consumer-hystrix-dashboard9001</module>
         <module>cloud-alibaba-sentinel-service8500</module>
         <module>cloud-alibaba-consumer-order84</module>
+        <module>cloud-alibaba-provider-payment9003</module>
+        <module>cloud-alibaba-provider-payment9004</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
