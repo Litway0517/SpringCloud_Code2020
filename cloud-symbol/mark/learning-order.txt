@@ -36,6 +36,11 @@ Tips:" 模块顺序
     - cloud-consumer-feign-hystrix-order80: 消费 -> 引入hystrix断路器的消费微服务, 通过OpenFeign调用
     - cloud-consumer-hystrix-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件, 监控8001微服务
 
+    - cloud-alibaba-sentinel-service8500:   学习sentinel, 流控规则 降级规则 热点规则 系统规则等, 以及服务降级fallback作用和违反规则blockHandler
+
+    - cloud-alibaba-provider-payment9003:   服务 -> 引入sentinel的支付微服务
+    - cloud-alibaba-provider-payment9004:   服务 -> 引入sentinel的支付微服务, 构成集群
+    - cloud-alibaba-consumer-order84:       消费 -> sentinel结合RestTemplate或OpenFeign远程调用, 并实现服务降级
 
 
 
