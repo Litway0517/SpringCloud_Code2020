@@ -23,4 +23,8 @@ public class CommonResult<T> {
     public CommonResult<T> error() {
         return new CommonResult<>(400, "操作失败");
     }
+
+    public CommonResult<T> error(T data) {
+        return new CommonResult<>(400, "操作失败", data);
+    }
 }
