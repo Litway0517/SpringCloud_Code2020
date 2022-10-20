@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import com.litway.springcloud.service.IMessageProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 
@@ -11,7 +12,7 @@ import javax.annotation.Resource;
 
 
 // 不需要再写Service注解, 这里需要和Stream的binders结合
-@EnableBinding
+@EnableBinding(Source.class)
 @Slf4j
 public class MessageProviderImpl implements IMessageProvider {
 
