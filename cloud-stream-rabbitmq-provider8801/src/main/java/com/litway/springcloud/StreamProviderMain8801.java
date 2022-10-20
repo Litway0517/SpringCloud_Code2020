@@ -7,10 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class StreamConsumerMain8801 {
+public class StreamProviderMain8801 {
 
     public static void main(String[] args) {
-        SpringApplication.run(StreamConsumerMain8801.class, args);
+        SpringApplication.run(StreamProviderMain8801.class, args);
     }
 
 }
