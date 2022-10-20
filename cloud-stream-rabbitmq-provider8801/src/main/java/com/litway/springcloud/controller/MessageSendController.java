@@ -19,6 +19,4 @@ public class MessageSendController {
         return messageProvider.send();
     }
 
-
-
 }
