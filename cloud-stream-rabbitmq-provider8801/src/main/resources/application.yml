@@ -13,7 +13,7 @@ spring:
     stream:
       # 配置需要绑定的RabbitMQ服务信息
       binders:
-        # 定义的名称, 用于bingding整合
+        # 定义的名称, 用于bindings整合
         defaultRabbit:
           # 消息组件类型
           type: rabbit

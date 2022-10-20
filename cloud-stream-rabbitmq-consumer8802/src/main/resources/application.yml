@@ -12,7 +12,7 @@ spring:
     stream:
       # 在此处配置要绑定的rabbitmq的服务信息；
       binders:
-        # 表示定义的名称, 用于于binding整合
+        # 表示定义的名称, 用于于bindings整合
         defaultRabbit:
           # 消息组件类型
           type: rabbit
@@ -34,6 +34,7 @@ spring:
           contentType: application/json
           # 设置要绑定的消息服务的具体设置
           binder: defaultRabbit
+          group: payment_A
 
 
 
