@@ -19,7 +19,7 @@
         <module>cloud-providerconsul-payment8006</module>
         <module>cloud-consumerconsul-order80</module>
         <module>cloud-providerconsul-payment8008</module>
-        <module>cloud-consumer-feign-order80</module>
+        <module>cloud-feign-consumer-order80</module>
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-config-center3344</module>
         <module>cloud-config-client3355</module>
@@ -28,9 +28,9 @@
         <module>cloud-alibaba-provider-payment9002</module>
         <module>cloud-alibaba-consumer-order83</module>
         <module>cloud-alibaba-nacos-config-client3377</module>
-        <module>cloud-provider-hystrix-payment8001</module>
-        <module>cloud-consumer-feign-hystrix-order80</module>
-        <module>cloud-consumer-hystrix-dashboard9001</module>
+        <module>cloud-hystrix-provider-payment8001</module>
+        <module>cloud-hystrix-feign-consumer-order80</module>
+        <module>cloud-hystrix-consumer-dashboard9001</module>
         <module>cloud-alibaba-sentinel-service8500</module>
         <module>cloud-alibaba-consumer-order84</module>
         <module>cloud-alibaba-provider-payment9003</module>

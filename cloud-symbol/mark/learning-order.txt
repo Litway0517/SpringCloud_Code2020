@@ -10,14 +10,14 @@ Tips:" 模块顺序
     - cloud-eureka-server7001:              服务 -> eureka server第一个注册中心
     - cloud-eureka-server7002:              服务 -> eureka server第二个注册中心, 构成注册中心集群
 
-    - cloud-consumerZookeeper-order80:      消费 ->
+    - cloud-zookeeper-consumer-order80:     消费 ->
     - cloud-provider-payment8004:           服务 -> 订单支付模块, 注册到zookeeper注册中心
 
     - cloud-consumerconsul-order80:         消费 -> 订单消费模块, 注册到consul注册中心
     - cloud-providerconsul-payment8006:     服务 -> 订单服务模块, 注册到consul注册中心
     - cloud-providerconsul-payment8008:     服务 -> 第二个订单服务模块, 注册到consul注册中心, 构成支付微服务集群
 
-    - cloud-consumer-feign-order80:         消费 -> 通过OpenFeign远程调用其他微服务模块
+    - cloud-feign-consumer-order80:         消费 -> 通过OpenFeign远程调用其他微服务模块
 
     - cloud-gateway-gateway9527:            服务 -> Gateway网关服务. 8006和8008模块和网关一起测试
 
@@ -32,9 +32,9 @@ Tips:" 模块顺序
 
     - cloud-alibaba-nacos-config-client3377:配置中心client端
 
-    - cloud-provider-hystrix-payment8001:   服务 -> 引入hystrix断路器的支付微服务
-    - cloud-consumer-feign-hystrix-order80: 消费 -> 引入hystrix断路器的消费微服务, 通过OpenFeign调用
-    - cloud-consumer-hystrix-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件, 监控8001微服务
+    - cloud-hystrix-provider-payment8001:   服务 -> 引入hystrix断路器的支付微服务
+    - cloud-hystrix-feign-consumer-order80: 消费 -> 引入hystrix断路器的消费微服务, 通过OpenFeign调用
+    - cloud-hystrix-consumer-dashboard9001: 监控 -> 引入hystrix dashboard图形化监控界面, 用来监控其他微服务调用 降级 熔断事件, 监控8001微服务
 
     - cloud-alibaba-sentinel-service8500:   学习sentinel, 流控规则 降级规则 热点规则 系统规则等, 以及服务降级fallback作用和违反规则blockHandler
 
@@ -42,6 +42,8 @@ Tips:" 模块顺序
     - cloud-alibaba-provider-payment9004:   服务 -> 引入sentinel的支付微服务, 构成集群
     - cloud-alibaba-consumer-order84:       消费 -> sentinel结合RestTemplate或OpenFeign远程调用, 并实现服务降级
 
+    - cloud-sleuth-consumer-order80:        消费 -> 引入Sleuth消费微服务, 调用支付微服务, 记录调用链路
+    - cloud-alibaba-provider-payment9001:   服务 -> 引入Sleuth支付微服务, 记录调用链路
 
 
 
