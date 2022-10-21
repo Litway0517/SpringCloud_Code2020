@@ -8,7 +8,7 @@ spring:
 
   # zipkin不属于cloud组件
   zipkin:
-    base-url: 127.0.0.1:9411
+    base-url: http://127.0.0.1:9411
   sleuth:
     sampler:
       # 采样率值介于 0 到 1 之间. 1 则表示全部采集
