@@ -31,10 +31,7 @@ logging:
       seata: info
 
     # mybatis日志, 对这个包起作用
-    com:
-      litway:
-        springcloud:
-          mapper: debug
+    com: debug
 mybatis:
   mapperLocations: classpath:mapper/*.xml
 

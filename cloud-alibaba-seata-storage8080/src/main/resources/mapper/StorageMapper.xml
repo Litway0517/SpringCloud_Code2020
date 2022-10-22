@@ -11,7 +11,7 @@
 
     <update id="deduct">
         update `t_storage`
-        set used = used + #{count},redisue = residue - #{count}
+        set used = used + #{count},residue = residue - #{count}
         where product_id = #{productId}
     </update>
 
