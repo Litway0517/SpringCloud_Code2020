@@ -16,6 +16,10 @@ public class CommonResult<T> {
         this(code, message, null);
     }
 
+    public CommonResult<T> success() {
+        return new CommonResult<>(200, "请求成功", null);
+    }
+
     public CommonResult<T> success(T data) {
         return new CommonResult<>(200, "请求成功", data);
     }
