@@ -39,6 +39,7 @@
         <module>cloud-stream-rabbitmq-consumer8802</module>
         <module>cloud-stream-rabbitmq-consumer8803</module>
         <module>cloud-sleuth-consumer-order80</module>
+        <module>cloud-alibaba-seata-order8060</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
