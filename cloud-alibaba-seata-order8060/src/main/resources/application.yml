@@ -16,10 +16,18 @@ spring:
         tx-service-group: litway_tx_group
 
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/learn-seata-order
+    # 8.0mysql驱动配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/learn-seata?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
     username: root
     password: root
+
+    # 这是5.7的驱动配置, springboot 2.2.2使用的是8.0的驱动, 所以配置不对
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/learn-seata-order
+#    username: root
+#    password: root
 
 feign:
   hystrix:
