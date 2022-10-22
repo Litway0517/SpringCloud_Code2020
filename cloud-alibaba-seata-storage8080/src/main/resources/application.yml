@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-seata-storage
+
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: litway_tx_group
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  datasource:
+    # 8.0mysql驱动配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/learn-seata-storage?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+
+feign:
+  hystrix:
+    enabled: true
+
+logging:
+  level:
+    io:
+      seata: info
+
+    # mybatis日志, 对这个包起作用
+    com:
+      litway:
+        springcloud:
+          mapper: debug
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
