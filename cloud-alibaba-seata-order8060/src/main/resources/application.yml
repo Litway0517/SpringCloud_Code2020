@@ -39,8 +39,7 @@ logging:
       seata: info
 
 mybatis:
-  mapper-locations:
-    - classpath:mapper/*.xml
+  mapperLocations: classpath:mapper/*.xml
 
 
 
