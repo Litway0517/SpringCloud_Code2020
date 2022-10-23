@@ -8,7 +8,7 @@ public interface OrderService {
     /**
      * 创建订单
      */
-    void create(Order order);
+    public void create(Order order);
 
 
 }

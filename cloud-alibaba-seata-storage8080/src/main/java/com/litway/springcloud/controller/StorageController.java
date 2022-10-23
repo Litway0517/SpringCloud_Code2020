@@ -15,7 +15,7 @@ public class StorageController {
     @Resource
     private StorageService storageService;
 
-    @GetMapping("/deduct")
+    @GetMapping("/decrease")
     public CommonResult<?> deductStorage(Long productId, Integer count) {
         storageService.deduct(productId, count);
         return new CommonResult<>().success("库存扣减成功");
