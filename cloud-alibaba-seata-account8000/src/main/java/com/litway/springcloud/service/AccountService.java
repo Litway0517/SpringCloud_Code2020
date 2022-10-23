@@ -12,5 +12,5 @@ public interface AccountService {
      * @param userId 用户id
      * @param money 金额
      */
-    void deduct(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money);
+    public void deduct(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money);
 }

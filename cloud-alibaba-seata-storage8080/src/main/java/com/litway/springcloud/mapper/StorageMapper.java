@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface StorageMapper {
 
-    void deduct(@Param("productId") Long productId, @Param("count") Integer count);
+    public void deduct(@Param("productId") Long productId, @Param("count") Integer count);
 
 }

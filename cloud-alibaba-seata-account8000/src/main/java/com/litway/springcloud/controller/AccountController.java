@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class AccountController {
 
     @Resource
-    AccountService accountService;
+    private AccountService accountService;
 
     /**
      * 扣减账户余额
