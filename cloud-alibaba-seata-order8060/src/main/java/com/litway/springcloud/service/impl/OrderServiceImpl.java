@@ -5,6 +5,7 @@ import com.litway.springcloud.mapper.OrderMapper;
 import com.litway.springcloud.service.AccountService;
 import com.litway.springcloud.service.OrderService;
 import com.litway.springcloud.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,8 @@ public class OrderServiceImpl implements OrderService {
      * @param order 订单
      */
     @Override
+    // @GlobalTransactional(name = "test_litway_tx_group", rollbackForClassName = "Exception")
+    @GlobalTransactional(name = "test_litway_tx_group", rollbackFor = Exception.class)
     public void create(Order order) {
         log.info("-----> 开始创建订单");
         orderMapper.create(order);
