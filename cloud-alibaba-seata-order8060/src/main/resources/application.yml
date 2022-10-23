@@ -33,6 +33,11 @@ feign:
   hystrix:
     enabled: true
 
+# 延长调用时间
+ribbon:
+  ConnectTimeout: 2000
+  ReadTimeout: 2000
+
 logging:
   level:
     io:
