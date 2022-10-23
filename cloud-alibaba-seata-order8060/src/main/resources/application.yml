@@ -29,9 +29,12 @@ spring:
 #    username: root
 #    password: root
 
-feign:
-  hystrix:
-    enabled: true
+# 开启了此处, 会导致hystrix的默认超时时间为1s, 并且还会和ribbon的超时时间同时生效, 那么下面的ribbon就起不到了作用
+# ribbon和feign的超时时间是相互制约的, 如果都配置则只有feign的生效
+# 参考: https://blog.csdn.net/w55935/article/details/126158124
+#feign:
+#  hystrix:
+#    enabled: true
 
 # 延长调用时间
 ribbon:
