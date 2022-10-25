@@ -11,6 +11,12 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * impl账户服务
+ *
+ * @author DELL_
+ * @date 2022/10/25
+ */
 @Service
 public class AccountServiceImpl implements AccountService {
 
