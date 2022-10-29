@@ -25,6 +25,9 @@ public class AccountController {
 
     /**
      * 扣减账户余额
+     *
+     * @param userId id
+     * @return {@link CommonResult}<{@link ?}> 结果
      */
     @PostMapping("/decrease")
     public CommonResult<?> deduct(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money){
