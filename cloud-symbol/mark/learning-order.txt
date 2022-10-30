@@ -42,7 +42,7 @@ Tips:" 模块顺序
     - cloud-alibaba-provider-payment9004:   服务 -> 引入sentinel的支付微服务, 构成集群
     - cloud-alibaba-consumer-order84:       消费 -> sentinel结合RestTemplate或OpenFeign远程调用, 并实现服务降级
 
-    - cloud-sleuth-consumer-order80:        消费 -> 引入Sleuth消费微服务, 调用支付微服务, 记录调用链路
+    - cloud-sleuth-consumer-order80:        消费 -> 引入Sleuth消费微服务, 调用支付微服务, 搭配Zipkin, 记录调用链路
     - cloud-alibaba-provider-payment9001:   服务 -> 引入Sleuth支付微服务, 记录调用链路
 
 
