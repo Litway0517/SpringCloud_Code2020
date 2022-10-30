@@ -5,6 +5,14 @@ spring:
   application:
     name: cloud-seata-storage
 
+  # zipkin调用监控
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  sleuth:
+    sampler:
+      # 采样率值介于 0 到 1 之间. 1 则表示全部采集
+      probability: 1
+
   cloud:
     alibaba:
       seata:
