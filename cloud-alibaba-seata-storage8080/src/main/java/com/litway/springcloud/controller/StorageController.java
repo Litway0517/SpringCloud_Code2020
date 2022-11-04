@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 存储控制器
+ *
+ * @author DELL_
+ * @date 2022/11/04
+ */
 @RestController
 @RequestMapping("/storage")
 public class StorageController {
