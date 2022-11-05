@@ -21,6 +21,13 @@ public class StorageController {
     @Resource
     private StorageService storageService;
 
+    /**
+     * 扣除存储
+     *
+     * @param productId 产品id
+     * @param count     数
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/decrease")
     public CommonResult<?> deductStorage(Long productId, Integer count) {
         storageService.deduct(productId, count);
