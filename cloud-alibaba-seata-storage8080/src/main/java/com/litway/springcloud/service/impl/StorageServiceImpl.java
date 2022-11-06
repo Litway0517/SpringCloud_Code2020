@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+/**
+ * 存储服务impl
+ *
+ * @author DELL_
+ * @date 2022/11/06
+ */
 @Service
 public class StorageServiceImpl implements StorageService {
     private static final Logger LOGGER = LoggerFactory.getLogger(StorageServiceImpl.class);
