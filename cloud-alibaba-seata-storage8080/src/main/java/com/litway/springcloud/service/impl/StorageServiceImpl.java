@@ -21,6 +21,12 @@ public class StorageServiceImpl implements StorageService {
     @Resource
     private StorageMapper storageMapper;
 
+    /**
+     * 扣除
+     *
+     * @param productId 产品id
+     * @param count     数
+     */
     @Override
     public void deduct(Long productId, Integer count) {
         LOGGER.info("------->storage-service中扣减库存开始");
