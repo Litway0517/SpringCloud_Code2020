@@ -29,6 +29,12 @@ public class OrderController {
         return new CommonResult<>().success();
     }
 
+    /**
+     * 创建
+     *
+     * @param order 订单
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/create")
     public CommonResult<?> create(Order order) {
         orderService.create(order);
