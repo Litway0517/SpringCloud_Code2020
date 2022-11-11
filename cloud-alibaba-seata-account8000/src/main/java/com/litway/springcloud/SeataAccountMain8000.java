@@ -8,6 +8,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.sleuth.instrument.web.client.feign.TraceFeignClientAutoConfiguration;
 
+/**
+ * seata账户main8000
+ *
+ * @author DELL_
+ * @date 2022/11/11
+ */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, TraceFeignClientAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
