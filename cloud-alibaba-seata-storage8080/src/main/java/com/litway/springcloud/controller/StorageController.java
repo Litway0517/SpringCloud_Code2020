@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * 存储控制器
+ * 库存controller
  *
  * @author DELL_
  * @date 2022/11/04
