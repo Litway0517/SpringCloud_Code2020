@@ -27,6 +27,7 @@ public class AccountController {
      * 扣减账户余额
      *
      * @param userId id
+     * @param money 金额
      * @return {@link CommonResult}<{@link ?}> 结果
      */
     @PostMapping("/decrease")
