@@ -45,6 +45,10 @@ Tips:" 模块顺序
     - cloud-sleuth-consumer-order80:        消费 -> 引入Sleuth消费微服务, 调用支付微服务, 搭配Zipkin, 记录调用链路
     - cloud-alibaba-provider-payment9001:   服务 -> 引入Sleuth支付微服务, 记录调用链路
 
+    - cloud-alibaba-seata-order8060:        服务 -> 订单服务, 用户下单, 结合seata测试分布式事务
+    - cloud-alibaba-seata-account8000:      服务 -> 账户服务, 扣减用户余额, 结合seata
+    - cloud-alibaba-seata-storage8080:      服务 -> 库存服务, 下单之后, 逻辑完成后扣减库存
+
 
 
 
