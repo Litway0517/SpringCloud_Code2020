@@ -35,6 +35,11 @@ public class OrderFeignController {
         return paymentById;
     }
 
+    /**
+     * 超时测试
+     *
+     * @return {@link CommonResult}<{@link Payment}>
+     */
     @GetMapping("/consumer/payment/openfeign/timeout")
     public CommonResult<Payment> feignTimeout() {
         CommonResult<Payment> result = paymentFeignService.paymentFeignTimeout();
