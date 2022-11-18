@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 链路跟踪控制器
+ *
+ * @author DELL_
+ * @date 2022/11/18
+ */
 @RestController
 @RequestMapping("/sleuth")
 public class SleuthConsumerController {
