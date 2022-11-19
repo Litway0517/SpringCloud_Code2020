@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+/**
+ * 速率限制控制器
+ *
+ * @author DELL_
+ * @date 2022/11/19
+ */
 @RestController
 @RequestMapping("/rate")
 public class RateLimitController {
