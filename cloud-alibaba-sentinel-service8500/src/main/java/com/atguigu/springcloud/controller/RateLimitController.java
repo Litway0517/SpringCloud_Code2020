@@ -23,6 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rate")
 public class RateLimitController {
 
+    /**
+     * 通过资源设定限流规则
+     *
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/test/source")
     @SentinelResource(value = "source", blockHandler = "sourceHandler")
     public CommonResult<?> byResource() {
