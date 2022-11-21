@@ -34,6 +34,11 @@ public class RateLimitController {
         return new CommonResult<>().success(new Payment(10L, "serial_test"));
     }
 
+    /**
+     * 降级方法
+     * @param ex 异常
+     * @return {@link CommonResult}<{@link ?}>
+     */
     public CommonResult<?> sourceHandler(BlockException ex) {
         return new CommonResult<>(400, ex.getClass().getCanonicalName() + ", 服务不可用. ");
     }
