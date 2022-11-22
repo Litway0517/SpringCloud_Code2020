@@ -43,6 +43,11 @@ public class RateLimitController {
         return new CommonResult<>(400, ex.getClass().getCanonicalName() + ", 服务不可用. ");
     }
 
+    /**
+     * 通过url设定先流规则
+     *
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/test/url")
     @SentinelResource(value = "url")
     public CommonResult<?> byUrl() {
