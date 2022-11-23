@@ -55,6 +55,13 @@ public class RateLimitController {
     }
 
 
+    /**
+     * blockHandlerClass: 降级类
+     * blockHandler: 降级方法
+     *
+     * @param userId 用户id
+     * @return {@link CommonResult}<{@link ?}>
+     */
     // 测试自定义的处理方法
     @GetMapping("/test/costumerAndParam/{id}")
     @SentinelResource(value = "costumerAndParam",
