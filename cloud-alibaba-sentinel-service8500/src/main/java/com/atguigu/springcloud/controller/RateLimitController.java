@@ -74,6 +74,11 @@ public class RateLimitController {
         return new CommonResult<>().success(new Payment(20L, "有参数: " + IdUtil.fastSimpleUUID() + userId.toString()));
     }
 
+    /**
+     * 无参数降级方法
+     *
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/test/costumerNoParam")
     @SentinelResource(value = "costumerNoParam",
             blockHandlerClass = CostumerHandlerException.class,
