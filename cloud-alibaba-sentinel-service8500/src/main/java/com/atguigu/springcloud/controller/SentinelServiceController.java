@@ -13,6 +13,12 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * 哨兵
+ *
+ * @author DELL_
+ * @date 2022/11/25
+ */
 @RestController
 @Slf4j
 @RequestMapping("/sentinel")
