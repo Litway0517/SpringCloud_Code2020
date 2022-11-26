@@ -20,6 +20,12 @@ public class PaymentNacosController {
     private String serverPort;
 
 
+    /**
+     * 获取订单
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link String}>
+     */
     @GetMapping("/payment/nacos/{id}")
     public CommonResult<String> getPayment(@PathVariable("id") Integer id) {
         // int i = 10 / 0;
