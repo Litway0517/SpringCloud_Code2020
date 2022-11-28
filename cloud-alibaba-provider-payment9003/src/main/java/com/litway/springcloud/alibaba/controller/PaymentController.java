@@ -22,6 +22,12 @@ public class PaymentController {
         hashMap.put(3L, new Payment(3L, "6ua8c1e3bc2742d8848569891xt92183"));
     }
 
+    /**
+     * 支付
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link Payment}>
+     */
     @GetMapping(value = "/paymentSQL/{id}")
     public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
         Payment payment = hashMap.get(id);
