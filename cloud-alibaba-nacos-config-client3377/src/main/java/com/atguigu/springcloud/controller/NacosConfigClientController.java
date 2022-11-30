@@ -23,6 +23,11 @@ public class NacosConfigClientController {
     @Value("${config.info}")
     private String configInfo;
 
+    /**
+     * 获取配置信息
+     *
+     * @return {@link CommonResult}<{@link String}>
+     */
     @GetMapping("/nacos/config/info")
     public CommonResult<String> getConfigInfo() {
         return new CommonResult<>(200, "请求成功", configInfo);
