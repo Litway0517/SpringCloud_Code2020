@@ -28,6 +28,12 @@ public class OrderFeignController {
         return new CommonResult<>(200, "OpenFeign请求成功", s);
     }
 
+    /**
+     * 通过id获取付款
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link Payment}>
+     */
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id)
     {
