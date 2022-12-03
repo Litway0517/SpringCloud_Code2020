@@ -24,6 +24,12 @@ public class SleuthConsumerController {
     private PaymentService paymentService;
 
 
+    /**
+     * 支付
+     *
+     * @param userId 用户id
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/consumer/payment/{id}")
     public CommonResult<?> getPayment(@PathVariable("id") Integer userId) {
         return paymentService.getPayment(userId);
