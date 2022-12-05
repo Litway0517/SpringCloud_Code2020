@@ -31,13 +31,13 @@ public class ConsumerOrderController {
         SentinelResource注解的几个参数解释
      */
     @GetMapping("/consumer/{id}")
-    // 没有配置 -> 会导致接口的错误直接返回给前端界面
+    // 没有配置fallback错误信息 -> 会导致接口的错误直接返回给前端界面
     // @SentinelResource(value = "fallback")
 
     // 有fallback配置 -> 出现错误时会执行服务降级逻辑. fallback -> Throwable
     // @SentinelResource(value = "fallback", fallbackClass = {MyFallback.class}, fallback = "fallbackHandler")
 
-    // 有blockHandler配置 -> 违反sentinel控制台规则时触blockHandler逻辑
+    // 有blockHandler配置 -> 违反sentinel控制台规则时触发blockHandler逻辑
     // @SentinelResource(value = "blockHandler", blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler")
 
     // fallback和blockHandler均有, 当请求发生错误时, 且违背限流规则时, 优先返回blockHandler方法, 其实blockHandler是一个特殊的500
