@@ -66,6 +66,13 @@ public class ConsumerOrderController {
     // ===================OpenFeign调用
     @Resource
     private PaymentFeignService paymentFeignService;
+
+    /**
+     * 支付
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/consumer/feign/paymentSQL/{id}")
     public CommonResult<?> paymentSQL(@PathVariable("id") Long id) {
         CommonResult<?> result = paymentFeignService.paymentSQL(id);
