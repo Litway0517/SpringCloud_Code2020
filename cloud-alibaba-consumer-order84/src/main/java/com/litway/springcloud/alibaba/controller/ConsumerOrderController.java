@@ -15,6 +15,12 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
+/**
+ * 消费者顺序控制器
+ *
+ * @author DELL_
+ * @date 2022/12/08
+ */
 @RestController
 @RequestMapping("/sentinel/fallback")
 public class ConsumerOrderController {
