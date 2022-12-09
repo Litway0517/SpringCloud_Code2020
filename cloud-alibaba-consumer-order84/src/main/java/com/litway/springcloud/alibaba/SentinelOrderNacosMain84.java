@@ -5,6 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * Sentinel
+ *
+ * @author DELL_
+ * @date 2022/12/09
+ */
 @EnableDiscoveryClient
 @SpringBootApplication
 
