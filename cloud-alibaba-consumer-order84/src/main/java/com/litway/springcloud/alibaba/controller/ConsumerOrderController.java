@@ -47,7 +47,7 @@ public class ConsumerOrderController {
     // @SentinelResource(value = "blockHandler", blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler")
 
     // fallback和blockHandler均有, 当请求发生错误时, 且违背限流规则时, 优先返回blockHandler方法, 其实blockHandler是一个特殊的500
-    // exceptionsToIgnore参数配置忽略的异常类型(不走兜底类), 如当接口执行过程中遇到IllegalArgumentException类型的错误时不走兜底类中的方法
+    // exceptionsToIgnore参数配置忽略的异常类型(不走兜底类), 如当接口执行过程中遇到IllegalArgumentException类型的错误时不走兜底类中的方法, 返回错误
     @SentinelResource(value = "fallbackAndBlockHandler",
             fallbackClass = {MyFallback.class}, fallback = "fallbackHandler",
             blockHandlerClass = {MyHandler.class}, blockHandler = "myHandler",
