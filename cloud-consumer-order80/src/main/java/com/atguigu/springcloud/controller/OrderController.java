@@ -35,6 +35,12 @@ public class OrderController {
     @Resource
     private RestTemplate restTemplate;
 
+    /**
+     * 支付
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/payment/get/{id}")
     public CommonResult<?> getPayment(@PathVariable("id") Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/get/" + id, CommonResult.class);
