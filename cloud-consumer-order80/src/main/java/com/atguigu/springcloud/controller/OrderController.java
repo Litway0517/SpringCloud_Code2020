@@ -46,6 +46,12 @@ public class OrderController {
         return restTemplate.getForObject(PAYMENT_URL + "/get/" + id, CommonResult.class);
     }
 
+    /**
+     * 创建订单
+     *
+     * @param payment 付款
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping("/payment/create")
     public CommonResult<?> create(Payment payment) {
         return restTemplate.postForObject(PAYMENT_URL + "/create", payment, CommonResult.class);
