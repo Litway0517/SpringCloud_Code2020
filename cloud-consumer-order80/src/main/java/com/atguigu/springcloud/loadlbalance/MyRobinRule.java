@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class MyRobinRule implements LoadBalanceRule {
 
-    // 用来技术当前请求为第几次
+    // 用来技记录当前请求为第几次
     private AtomicInteger currentReqCount = new AtomicInteger(0);
 
     // 使用AtomicInteger和自旋锁控制 访问顺序 的原子性
