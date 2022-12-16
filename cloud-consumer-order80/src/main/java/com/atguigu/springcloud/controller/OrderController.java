@@ -57,6 +57,11 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_URL + "/create", payment, CommonResult.class);
     }
 
+    /**
+     * 测试轮询
+     *
+     * @return {@link CommonResult}<{@link String}>
+     */
     @GetMapping("/payment/lb")
     public CommonResult<String> testRobinRule() {
         List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
