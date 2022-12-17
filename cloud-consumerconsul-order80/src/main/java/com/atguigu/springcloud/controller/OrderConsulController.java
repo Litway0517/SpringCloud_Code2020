@@ -25,6 +25,11 @@ public class OrderConsulController {
     private static final String PAYMENT_URL = "http://CONSUL-PROVIDER-PAYMENT/payment";
 
 
+    /**
+     * 消费者
+     *
+     * @return {@link String}
+     */
     @GetMapping(value = "/consumer/payment/consul")
     public String consumerConsul() {
         return restTemplate.getForObject(PAYMENT_URL + "/consul", String.class);
