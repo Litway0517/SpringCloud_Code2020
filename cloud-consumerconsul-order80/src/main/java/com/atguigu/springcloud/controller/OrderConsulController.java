@@ -35,6 +35,12 @@ public class OrderConsulController {
         return restTemplate.getForObject(PAYMENT_URL + "/consul", String.class);
     }
 
+    /**
+     * restTemplates调用getForEntity得到的是一个更具体的返回对象, 而getForObject是一个简化对象
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link ?}>
+     */
     @GetMapping(value = "/consumer/payment/getEntity/consul/{id}")
     public CommonResult<?> consumerConsulForEntity(@PathVariable("id") Long id) {
         ResponseEntity<CommonResult> response = restTemplate.getForEntity(PAYMENT_URL + "/get/" + id, CommonResult.class);
