@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * hystrix中间件
+ *
+ * @author DELL_
+ * @date 2022/12/20
+ */
 @RestController
 @RequestMapping("/consumer/hystrix")
 @Slf4j
