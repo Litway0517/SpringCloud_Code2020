@@ -35,6 +35,12 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
+    /**
+     * 通过id获取订单
+     *
+     * @param id id
+     * @return {@link CommonResult}<{@link Payment}>
+     */
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
